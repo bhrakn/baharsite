@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f5f5f5;
+  --foreground: #000000;
+  --accent: #ff3e00;
+  --shadow-color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ffffff;
+    --accent: #ff6b3d;
+    --shadow-color: #ffffff;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Transition for dark mode */
+body {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Add hover animation for links */
+a {
+  transition: all 0.2s ease;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-4deg); }
+  75% { transform: rotate(4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.neobrutalist-button {
+  @apply font-bold border-4 border-foreground shadow-[4px_4px_0px_0px_var(--shadow-color)] 
+  hover:shadow-[6px_6px_0px_0px_var(--shadow-color)] hover:translate-x-[-2px] hover:translate-y-[-2px]
+  active:shadow-[2px_2px_0px_0px_var(--shadow-color)] active:translate-x-[2px] active:translate-y-[2px]
+  transition-all duration-200;
+}
+
+.neobrutalist-card {
+  @apply border-4 border-foreground bg-background shadow-[8px_8px_0px_0px_var(--shadow-color)]
+  hover:shadow-[12px_12px_0px_0px_var(--shadow-color)] hover:translate-x-[-4px] hover:translate-y-[-4px]
+  transition-all duration-200;
+}
